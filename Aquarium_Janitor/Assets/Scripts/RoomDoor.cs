@@ -9,23 +9,28 @@ public class RoomDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Door trigger entered: " + gameObject.name);
+
         Rigidbody2D player = other.attachedRigidbody;
 
         if (player == null || !player.CompareTag("Player"))
             return;
 
         if (destination == null)
+        {
+            Debug.LogError(name + ": Destination is not assigned!");
             return;
+        }
 
-        // Prevent rapid teleporting between doors.
         if (Time.time < nextTeleportTime)
             return;
 
         nextTeleportTime = Time.time + 0.5f;
 
+        Debug.Log(name + ": Teleporting player to " + destination.name);
+
         player.linearVelocity = Vector2.zero;
         player.angularVelocity = 0f;
-
         player.position = destination.position;
         player.transform.position = destination.position;
 
