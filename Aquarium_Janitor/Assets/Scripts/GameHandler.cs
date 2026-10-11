@@ -8,6 +8,13 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour {
 
       private GameObject player;
+      
+      public static int playerHearts = 2;
+      public GameObject heart1;
+      public GameObject heart2;
+      public static float heart1fill = 1.0f;
+      public static float heart2fill = 1.0f;
+
       public static int playerHealth = 100;
       public int StartPlayerHealth = 100;
      // public TMP_Text healthText;
@@ -41,6 +48,13 @@ public class GameHandler : MonoBehaviour {
            if (isDefending == false){
                   playerHealth -= damage;
                   if (playerHealth >=0){
+                       if (playerHearts == 2){
+                              heart2fill = (float)playerHealth / StartPlayerHealth;
+                        }
+                       else if (playerHearts == 1){
+                              heart1fill = (float)playerHealth / StartPlayerHealth;
+                        }
+                        Debug.Log("pHealth = " + playerHealth + ". Hearts = " + playerHearts + ". h1fill = " + heart1fill + ". h2fill = " + heart2fill);
                        // updateStatsDisplay();
                   }
                   if (damage > 0){
@@ -49,16 +63,22 @@ public class GameHandler : MonoBehaviour {
                   }
             }
 
-           if (playerHealth > StartPlayerHealth){
-                  playerHealth = StartPlayerHealth;
+           //if (playerHealth > StartPlayerHealth){
+                  //playerHealth = StartPlayerHealth;
                  // updateStatsDisplay();
-            }
+            //}
 
            if (playerHealth <= 0){
                   playerHealth = 0;
-                 // updateStatsDisplay();
+                  playerHearts -=1;
+                  //updateStatsDisplay();
+                  playerHealth = StartPlayerHealth;
+            }
+
+            if (playerHearts <= 0){
                   playerDies();
             }
+
       }
 
 /*
