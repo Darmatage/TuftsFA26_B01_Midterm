@@ -1691,7 +1691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 949547544}
   - component: {fileID: 949547545}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1760,7 +1760,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.34509805, g: 0.34509805, b: 0.34509805, a: 1}
@@ -2420,6 +2420,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water_Mask
       objectReference: {fileID: 0}
+    - target: {fileID: 4850445065748458791, guid: dc91f4b1ce77f4620925c5cb4cb07819, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4929802116263016553, guid: dc91f4b1ce77f4620925c5cb4cb07819, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.56
@@ -2928,6 +2932,14 @@ PrefabInstance:
     - target: {fileID: 2743849280211845730, guid: b85f67aac311f4d99b6f391d799af110, type: 3}
       propertyPath: m_Name
       value: Water_Surface
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743849280211845730, guid: b85f67aac311f4d99b6f391d799af110, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039577597326899905, guid: b85f67aac311f4d99b6f391d799af110, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
