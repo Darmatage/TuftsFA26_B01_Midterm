@@ -1133,7 +1133,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8100021557333130486, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1570807677}
   m_SourcePrefab: {fileID: 100100000, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
 --- !u!1 &629651583
 GameObject:
@@ -2426,6 +2429,90 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!1 &1359748595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1359748598}
+  - component: {fileID: 1359748597}
+  - component: {fileID: 1359748596}
+  m_Layer: 0
+  m_Name: AttackHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1359748596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359748595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91eff82f1990e86458b19c395007ec57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackHitbox
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!58 &1359748597
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359748595}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2.5
+--- !u!4 &1359748598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359748595}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.25, y: -2.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1367038081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -2591,11 +2678,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
   m_PrefabInstance: {fileID: 1342294722}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1570807671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8100021557333130486, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
+  m_PrefabInstance: {fileID: 565727818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1570807676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3914258235323953138, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
   m_PrefabInstance: {fileID: 565727818}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1570807677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570807671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7630344d78616ce4e8e6546c3cb33098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  attackPrefab: {fileID: 0}
+  attackDuration: 0.5
+  cooldownTime: 3
 --- !u!1001 &1647576633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3097,3 +3204,4 @@ SceneRoots:
   - {fileID: 1008689736}
   - {fileID: 1653688883}
   - {fileID: 433195589}
+  - {fileID: 1359748598}
