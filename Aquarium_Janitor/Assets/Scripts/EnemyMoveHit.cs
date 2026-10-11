@@ -9,7 +9,7 @@ public class EnemyMoveHit : MonoBehaviour
     private Rigidbody2D rb2D;
     public float speed = 4f;
     private Transform target;
-    public int damage = 10;
+    public int damage = 100;
 
     public int EnemyLives = 3;
     private GameHandler gameHandler;
