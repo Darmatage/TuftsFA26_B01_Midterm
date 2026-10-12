@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4461472442066098143}
   - component: {fileID: 9940890612806741}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: tank_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4074454022341954522}
   - component: {fileID: 4968092516372387299}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: Aquarium
   m_TagString: Untagged
   m_Icon: {fileID: 0}

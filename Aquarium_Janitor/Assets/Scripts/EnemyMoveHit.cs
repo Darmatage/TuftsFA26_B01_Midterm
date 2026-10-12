@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMoveHit : MonoBehaviour
@@ -23,8 +24,18 @@ public class EnemyMoveHit : MonoBehaviour
     private bool isStunned = false;
     private Coroutine stunCoroutine;
 
+    private GridPathfinder pathfinder;
+    private List<Vector2> currentPath = new List<Vector2>();
+    private int pathIndex = 0;
+    private float nextPathUpdate = 0f;
+
+    [Header("Pathfinding")]
+    public float pathUpdateInterval = 0.25f;
+    public float waypointDistance = 0.1f;
+
     void Start()
     {
+        pathfinder = FindObjectOfType<GridPathfinder>();
         anim = GetComponentInChildren<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         scaleX = transform.localScale.x;
@@ -44,38 +55,75 @@ public class EnemyMoveHit : MonoBehaviour
         }
     }
 
+
     void Update()
     {
         if (target == null)
             return;
 
-        // Do not chase while stunned.
+        // Do not move while stunned.
         if (Time.time < stunEndTime)
             return;
 
         float distToPlayer =
             Vector2.Distance(transform.position, target.position);
 
-        if (distToPlayer <= attackRange)
+        if (distToPlayer > attackRange)
         {
+            currentPath.Clear();
+            pathIndex = 0;
+            return;
+        }
+
+        if (pathfinder == null)
+            return;
+
+        // Recalculate the path periodically as the player moves.
+        if (Time.time >= nextPathUpdate)
+        {
+            currentPath = pathfinder.FindPath(
+                transform.position,
+                target.position
+            );
+
+            pathIndex = currentPath.Count > 1 ? 1 : 0;
+            nextPathUpdate = Time.time + pathUpdateInterval;
+        }
+
+        // Follow the calculated path.
+        if (pathIndex < currentPath.Count)
+        {
+            Vector2 waypoint = currentPath[pathIndex];
+
             transform.position = Vector2.MoveTowards(
                 transform.position,
-                target.position,
+                waypoint,
                 speed * Time.deltaTime
             );
 
-            if (target.position.x > transform.position.x)
+            if (Vector2.Distance(transform.position, waypoint)
+                <= waypointDistance)
             {
-                transform.localScale = new Vector2(
-                    scaleX, transform.localScale.y);
+                pathIndex++;
             }
-            else
+        }
+
+        // Face the direction of travel.
+        if (pathIndex < currentPath.Count)
+        {
+            float directionX =
+                currentPath[pathIndex].x - transform.position.x;
+
+            if (Mathf.Abs(directionX) > 0.01f)
             {
                 transform.localScale = new Vector2(
-                    scaleX * -1, transform.localScale.y);
+                    directionX > 0 ? scaleX : -scaleX,
+                    transform.localScale.y
+                );
             }
         }
     }
+
 
     public void TakeHit()
     {
