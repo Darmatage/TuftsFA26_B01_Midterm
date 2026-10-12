@@ -3064,6 +3064,7 @@ GameObject:
   - component: {fileID: 1306968281}
   - component: {fileID: 1306968280}
   - component: {fileID: 1306968279}
+  - component: {fileID: 1306968283}
   m_Layer: 0
   m_Name: Enemy_MoveHit
   m_TagString: Untagged
@@ -3083,12 +3084,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0393bcc49bbdf824283d34881338154a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMoveHit
-  anim: {fileID: 0}
-  speed: 4
-  damage: 10
-  EnemyLives: 3
-  attackRange: 10
-  isAttacking: 0
 --- !u!61 &1306968280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3178,6 +3173,24 @@ Transform:
   - {fileID: 1370736522}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306968283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306968278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0c8c4b65b32413a84a25b2452c9155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMoveHit
+  anim: {fileID: 0}
+  speed: 4
+  damage: 100
+  EnemyLives: 3
+  attackRange: 10
+  isAttacking: 0
 --- !u!4 &1313289091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4929802116263016553, guid: dc91f4b1ce77f4620925c5cb4cb07819, type: 3}

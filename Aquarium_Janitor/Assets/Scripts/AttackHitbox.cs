@@ -6,12 +6,15 @@ public class AttackHitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((targetLayers.value &
-            (1 << other.gameObject.layer)) == 0)
-            return;
+        Debug.Log("Attack touched: " + other.name);
 
-        Debug.Log("Attack hit: " + other.name);
+        EnemyMoveHit enemy =
+            other.GetComponentInParent<EnemyMoveHit>();
 
-        // Add enemy damage logic here.
+        if (enemy != null)
+        {
+            Debug.Log("Enemy hit!");
+            enemy.TakeHit();
+        }
     }
 }

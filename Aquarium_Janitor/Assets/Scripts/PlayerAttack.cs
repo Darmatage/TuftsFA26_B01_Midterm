@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) &&
             Time.time >= nextAttackTime)
         {
+            Debug.Log("Attack button pressed!");
             StartAttack();
         }
     }
@@ -34,6 +35,8 @@ public class PlayerAttack : MonoBehaviour
             transform.position,
             Quaternion.identity
         );
+
+        Debug.Log("Attack hitbox spawned!");
 
         Destroy(attack, attackDuration);
     }
