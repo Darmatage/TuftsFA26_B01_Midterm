@@ -163,9 +163,17 @@ public class EnemyMoveHit : MonoBehaviour
         {
             isAttacking = true;
 
-            if (gameHandler != null)
+            PlayerHealth playerHealth =
+                other.gameObject.GetComponent<PlayerHealth>();
+
+            if (playerHealth != null)
             {
-                gameHandler.playerGetHit(damage);
+                playerHealth.TakeDamage(1);
+            }
+            else
+            {
+                Debug.LogWarning(
+                    "Player is missing the PlayerHealth component!");
             }
         }
     }
