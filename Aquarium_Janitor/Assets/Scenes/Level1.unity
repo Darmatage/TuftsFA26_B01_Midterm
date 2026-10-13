@@ -291,7 +291,7 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   healthText: {fileID: 0}
-  gameOverSceneName: Credits
+  gameOverSceneName: EndLose
 --- !u!1 &48790082
 GameObject:
   m_ObjectHideFlags: 0
