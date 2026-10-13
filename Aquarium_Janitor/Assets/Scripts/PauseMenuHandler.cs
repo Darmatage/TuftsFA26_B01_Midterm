@@ -44,11 +44,11 @@ public class PauseMenuHandler : MonoBehaviour {
                         Cursor.lockState = CursorLockMode.None;
                         Cursor.visible = true;
                 }
-             else { Resume (); }
+             else { Resume(); }
              //NOTE: This function is for the pause button
         }
 
-        public void Resume(){
+        public void Resume() {
                 pauseMenuUI.SetActive(false);
                 Time.timeScale = 1f;
                 GameisPaused = false;
