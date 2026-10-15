@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 449930404231583278}
   - component: {fileID: 6924394049032414562}
   - component: {fileID: 3235532790987351610}
+  - component: {fileID: 8422858525013301811}
   m_Layer: 0
   m_Name: Enemy_MoveHit
   m_TagString: Untagged
@@ -126,10 +127,25 @@ MonoBehaviour:
   EnemyLives: 3
   attackRange: 25
   isAttacking: 1
-  knockbackForce: 40
+  knockbackDistance: 10
+  knockbackSpeed: 10
   stunDuration: 3
   pathUpdateInterval: 0.25
   waypointDistance: 0.1
+--- !u!114 &8422858525013301811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523331503854415165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561c634906dfab44ca2e47ec7aff22a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnockbackMotor
+  knockbackDistance: 7
+  knockbackSpeed: 25
 --- !u!1 &7659234624628962705
 GameObject:
   m_ObjectHideFlags: 0

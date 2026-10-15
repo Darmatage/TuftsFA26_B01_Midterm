@@ -1,61 +1,71 @@
-using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 
-public class PlayerMoveAround : MonoBehaviour {
+public class PlayerMoveAround : MonoBehaviour
+{
+    private Rigidbody2D rb2D;
+    private PlayerHealth playerHealth;
 
-      //public Animator anim;
-      //public AudioSource WalkSFX;
-      private Rigidbody2D rb2D;
-      private bool FaceRight = true; // determine which way player is facing.
-      public float runSpeed = 5f;
-      public float startSpeed = 10f;
-      public bool isAlive = true;
-      Vector3 movement;
+    private bool FaceRight = true;
+    public float runSpeed = 5f;
+    public float startSpeed = 10f;
+    public bool isAlive = true;
 
-      void Start(){
-           //anim = gameObject.GetComponentInChildren<Animator>();
-           rb2D = transform.GetComponent<Rigidbody2D>();
-      }
+    private Vector2 movement;
 
-      void Update(){
-            // INPUTS: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
-            // Vertical axis: [w] / up arrow, [s] / down arrow
-           movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+    void Start()
+    {
+        rb2D = GetComponent<Rigidbody2D>();
+        playerHealth = GetComponent<PlayerHealth>();
+    }
 
-           if (isAlive == true){
-                  // Animation and audio:
-                  if ((movement.x != 0) || (movement.y != 0)){
-                  //     anim.SetBool ("Walk", true);
-                  //     if (!WalkSFX.isPlaying){
-                  //           WalkSFX.Play();
-                  //     }
-                  } else {
-                  //     anim.SetBool ("Walk", false);
-                  //     WalkSFX.Stop();
-                 }
+    void Update()
+    {
+        if (!isAlive)
+        {
+            movement = Vector2.zero;
+            return;
+        }
 
-                  // Turning. Reverse if input is moving the Player right and Player faces left.
-                 if ((movement.x <0 && !FaceRight) || (movement.x >0 && FaceRight)){
-                        playerTurn();
-                  }
-            }
-      }
+        if (playerHealth != null &&
+            playerHealth.IsBeingKnockedBack)
+        {
+            movement = Vector2.zero;
+            return;
+        }
 
-      void FixedUpdate(){
-           if (isAlive == true){
-                  // Move the character (all physics goes into FixedUpdate())
-                  rb2D.position = transform.position + movement * runSpeed * Time.fixedDeltaTime;
-            }
-      }
+        movement = new Vector2(
+            Input.GetAxisRaw("Horizontal"),
+            Input.GetAxisRaw("Vertical")
+        ).normalized;
 
-      private void playerTurn(){
-            // NOTE: Switch player facing label
-            FaceRight = !FaceRight;
+        if ((movement.x < 0 && FaceRight) ||
+            (movement.x > 0 && !FaceRight))
+        {
+            playerTurn();
+        }
+    }
 
-            // NOTE: Multiply player's x local scale by -1.
-            Vector3 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
-      }
+    void FixedUpdate()
+    {
+        if (!isAlive ||
+            (playerHealth != null &&
+             playerHealth.IsBeingKnockedBack))
+        {
+            return;
+        }
+
+        rb2D.MovePosition(
+            rb2D.position + movement * runSpeed *
+            Time.fixedDeltaTime
+        );
+    }
+
+    private void playerTurn()
+    {
+        FaceRight = !FaceRight;
+
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
 }

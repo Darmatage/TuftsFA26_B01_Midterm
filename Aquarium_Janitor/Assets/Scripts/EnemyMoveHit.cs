@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,8 @@ public class EnemyMoveHit : MonoBehaviour
     private Rigidbody2D rb2D;
     public float speed = 4f;
     private Transform target;
-    public int damage = 100;
-    private float stunEndTime = 0f;
+    private Vector2 movementTarget;
+    public int damage = 1;
     public int EnemyLives = 3;
     private GameHandler gameHandler;
 
@@ -18,11 +19,15 @@ public class EnemyMoveHit : MonoBehaviour
     private float scaleX;
 
     [Header("Knockback and Stun")]
-    public float knockbackForce = 8f;
+    public float knockbackDistance = 2f;
+    public float knockbackSpeed = 8f;
     public float stunDuration = 3f;
 
     private bool isStunned = false;
-    private Coroutine stunCoroutine;
+    private float stunEndTime = 0f;
+
+    private KnockbackMotor knockbackMotor;
+    private Coroutine knockbackCoroutine;
 
     private GridPathfinder pathfinder;
     private List<Vector2> currentPath = new List<Vector2>();
@@ -38,9 +43,12 @@ public class EnemyMoveHit : MonoBehaviour
         pathfinder = FindObjectOfType<GridPathfinder>();
         anim = GetComponentInChildren<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
+        knockbackMotor = GetComponent<KnockbackMotor>();
+
         scaleX = transform.localScale.x;
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player =
+            GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
         {
@@ -55,18 +63,28 @@ public class EnemyMoveHit : MonoBehaviour
         }
     }
 
-
     void Update()
     {
-        if (target == null)
+        if (target == null || rb2D == null)
             return;
 
-        // Do not move while stunned.
-        if (Time.time < stunEndTime)
+        if (knockbackMotor != null &&
+        knockbackMotor.IsKnockedBack)
+        {
             return;
+        }
+
+        // Do not chase while stunned or being knocked back.
+        if (isStunned)
+        {
+            if (Time.time < stunEndTime)
+                return;
+
+            isStunned = false;
+        }
 
         float distToPlayer =
-            Vector2.Distance(transform.position, target.position);
+            Vector2.Distance(rb2D.position, target.position);
 
         if (distToPlayer > attackRange)
         {
@@ -78,11 +96,11 @@ public class EnemyMoveHit : MonoBehaviour
         if (pathfinder == null)
             return;
 
-        // Recalculate the path periodically as the player moves.
+        // Recalculate the path periodically.
         if (Time.time >= nextPathUpdate)
         {
             currentPath = pathfinder.FindPath(
-                transform.position,
+                rb2D.position,
                 target.position
             );
 
@@ -90,91 +108,123 @@ public class EnemyMoveHit : MonoBehaviour
             nextPathUpdate = Time.time + pathUpdateInterval;
         }
 
-        // Follow the calculated path.
-        if (pathIndex < currentPath.Count)
-        {
-            Vector2 waypoint = currentPath[pathIndex];
-
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                waypoint,
-                speed * Time.deltaTime
-            );
-
-            if (Vector2.Distance(transform.position, waypoint)
-                <= waypointDistance)
-            {
-                pathIndex++;
-            }
-        }
-
-        // Face the direction of travel.
-        if (pathIndex < currentPath.Count)
-        {
-            float directionX =
-                currentPath[pathIndex].x - transform.position.x;
-
-            if (Mathf.Abs(directionX) > 0.01f)
-            {
-                transform.localScale = new Vector2(
-                    directionX > 0 ? scaleX : -scaleX,
-                    transform.localScale.y
-                );
-            }
-        }
-    }
-
-
-    public void TakeHit()
-    {
-        if (target == null || rb2D == null)
+        if (pathIndex >= currentPath.Count)
             return;
 
-        // Calculate the direction away from the player.
-        Vector2 direction =
-            ((Vector2)transform.position -
-             (Vector2)target.position).normalized;
+        Vector2 waypoint = currentPath[pathIndex];
 
-        // Start or refresh the stun timer.
-        stunEndTime = Time.time + stunDuration;
+        // Face the direction of travel.
+        float directionX = waypoint.x - rb2D.position.x;
 
-        // Apply knockback.
-        rb2D.linearVelocity = direction * knockbackForce;
+        if (Mathf.Abs(directionX) > 0.01f)
+        {
+            transform.localScale = new Vector2(
+                directionX > 0 ? scaleX : -scaleX,
+                transform.localScale.y
+            );
+        }
 
-        Debug.Log("Enemy stunned for " + stunDuration + " seconds.");
+        movementTarget = waypoint;
+
+        if (Mathf.Abs(directionX) > 0.01f)
+        {
+            transform.localScale = new Vector2(
+                directionX > 0 ? scaleX : -scaleX,
+                transform.localScale.y
+            );
+        }
+
+        if (Vector2.Distance(rb2D.position, waypoint)
+            <= waypointDistance)
+        {
+            pathIndex++;
+        }
     }
 
-    private IEnumerator StunAndKnockback(Vector2 direction)
+    void FixedUpdate()
     {
+        if (rb2D == null || isStunned)
+            return;
+
+        if (target == null || pathIndex >= currentPath.Count)
+            return;
+
+        rb2D.MovePosition(Vector2.MoveTowards(
+            rb2D.position,
+            movementTarget,
+            speed * Time.fixedDeltaTime
+        ));
+    }
+    public void TakeHit()
+    {
+        if (target == null || knockbackMotor == null)
+            return;
+
+        Vector2 direction =
+            (rb2D.position - (Vector2)target.position).normalized;
+
         isStunned = true;
+        stunEndTime = Time.time + stunDuration;
 
-        rb2D.linearVelocity = direction * knockbackForce;
+        knockbackMotor.ApplyKnockback(direction);
 
-        yield return new WaitForSeconds(stunDuration);
+        Debug.Log("Enemy knocked back and stunned.");
+    }
 
-        rb2D.linearVelocity = Vector2.zero;
-        isStunned = false;
-        stunCoroutine = null;
+    private IEnumerator KnockbackRoutine(Vector2 direction)
+    {
+        float distanceTravelled = 0f;
+
+        while (distanceTravelled < knockbackDistance)
+        {
+            float step = Mathf.Min(
+                knockbackSpeed * Time.fixedDeltaTime,
+                knockbackDistance - distanceTravelled
+            );
+
+            Vector2 before = rb2D.position;
+
+            rb2D.MovePosition(before + direction * step);
+
+            yield return new WaitForFixedUpdate();
+
+            float actualDistance = Vector2.Distance(
+                before, rb2D.position
+            );
+
+            distanceTravelled += actualDistance;
+
+            // Stop if a wall prevents further movement.
+            if (actualDistance < step * 0.5f)
+                break;
+        }
+
+        knockbackCoroutine = null;
     }
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (!other.gameObject.CompareTag("Player"))
+            return;
+
+        isAttacking = true;
+
+        // A stunned enemy cannot damage the player.
+        if (isStunned || Time.time < stunEndTime)
+            return;
+
+        PlayerHealth playerHealth =
+            other.gameObject.GetComponent<PlayerHealth>();
+
+        if (playerHealth != null)
         {
-            isAttacking = true;
-
-            PlayerHealth playerHealth =
-                other.gameObject.GetComponent<PlayerHealth>();
-
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(1);
-            }
-            else
-            {
-                Debug.LogWarning(
-                    "Player is missing the PlayerHealth component!");
-            }
+            playerHealth.TakeDamage(1, transform.position);
+        }
+        else
+        {
+            Debug.LogWarning(
+                "Player is missing the PlayerHealth component!"
+            );
         }
     }
 
