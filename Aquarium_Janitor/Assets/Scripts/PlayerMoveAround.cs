@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class PlayerMoveAround : MonoBehaviour
 {
+    [Header("Water Movement")]
+    public float waterSpeedMultiplier = 0.5f;
+
+    private int waterCount = 0;
     private Rigidbody2D rb2D;
     private PlayerHealth playerHealth;
 
@@ -54,10 +58,27 @@ public class PlayerMoveAround : MonoBehaviour
             return;
         }
 
+        float currentSpeed = runSpeed;
+
+        if (waterCount > 0)
+        {
+            currentSpeed *= waterSpeedMultiplier;
+        }
+
         rb2D.MovePosition(
-            rb2D.position + movement * runSpeed *
+            rb2D.position + movement * currentSpeed *
             Time.fixedDeltaTime
         );
+    }
+
+    public void EnterWater()
+    {
+        waterCount++;
+    }
+
+    public void ExitWater()
+    {
+        waterCount = Mathf.Max(0, waterCount - 1);
     }
 
     private void playerTurn()
