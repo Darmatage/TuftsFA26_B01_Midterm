@@ -219,6 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 36217769}
+  - component: {fileID: 36217770}
   m_Layer: 0
   m_Name: Room2
   m_TagString: Untagged
@@ -251,6 +252,25 @@ Transform:
   - {fileID: 1720335115}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &36217770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36217768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc934f072ba04ed086c8929b60b6c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomCleaningTracker
+  roomTanks:
+  - {fileID: 1022638551}
+  - {fileID: 1960214574}
+  - {fileID: 307012286}
+  - {fileID: 1707658153}
+  - {fileID: 319033281}
+  - {fileID: 1010321608}
 --- !u!4 &47292741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3914258235323953138, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
@@ -540,6 +560,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2142229490}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.425
@@ -595,8 +627,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1287004147}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &70436156 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 70436155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &70436157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 70436155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &90422942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -1257,6 +1302,135 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &224256372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224256374}
+  - component: {fileID: 224256373}
+  m_Layer: 0
+  m_Name: Cleaning Audio - replace clip on Player Tank Cleaner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &224256373
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224256372}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a706608b80157974281e9c03f51d82a1, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &224256374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224256372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 47292741}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &295194045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1265,6 +1439,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1140628282}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.049995
@@ -1312,8 +1498,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 319033281}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &295194046 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 295194045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &295194047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 295194045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &299002041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1322,6 +1521,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1140628282}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.74
@@ -1369,18 +1580,67 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 307012286}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &299002042 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 299002041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &299002043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 299002041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &307012285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
   m_PrefabInstance: {fileID: 299002041}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &307012286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299002043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 3
+  startsClean: 0
+  tankArt: {fileID: 299002042}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!4 &319033280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
   m_PrefabInstance: {fileID: 295194045}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &319033281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295194047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 5
+  startsClean: 0
+  tankArt: {fileID: 295194046}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!4 &321442069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -1440,9 +1700,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3914258235323953138, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 224256374}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8100021557333130486, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 345269556}
   m_SourcePrefab: {fileID: 100100000, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
+--- !u!1 &345269555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8100021557333130486, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
+  m_PrefabInstance: {fileID: 345269554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &345269556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345269555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63df818aedbc743d6b70e51bb8a78861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTankCleaner
+  room: {fileID: 1662466348}
+  cleanRange: 1.25
+  cleanDuration: 2
+  cleanKey: 99
+  cleaningAudio: {fileID: 224256373}
+  cleaningStartClip: {fileID: 8300000, guid: 8eeacf39cae824ca68881ff4fe9e8a20, type: 3}
+  cleaningVolume: 0.5
 --- !u!1 &364619296
 GameObject:
   m_ObjectHideFlags: 0
@@ -2982,6 +3272,57 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &736309829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736309831}
+  - component: {fileID: 736309830}
+  m_Layer: 0
+  m_Name: Level1 Cleaning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &736309830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736309829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e876c37abb0764498bfaa459b9400c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level1CleaningSetup
+  player: {fileID: 345269556}
+  hud: {fileID: 5049288592891134455}
+  room1: {fileID: 1662466348}
+  room2: {fileID: 36217770}
+  room1Center: {x: -2.726141, y: 15.873931}
+  room2Center: {x: -4.034998, y: -27.64}
+--- !u!4 &736309831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736309829}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5049288592891134456}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740469581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,6 +3552,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2142229490}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.65
@@ -3258,8 +3611,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1298606342}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &851255003 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 851255002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &851255004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 851255002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &886219758
 GameObject:
   m_ObjectHideFlags: 0
@@ -3359,6 +3725,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1140628282}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50.199997
@@ -3406,8 +3784,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1010321608}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &1010321606 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1010321605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1010321607 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1010321605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1010321608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010321607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 6
+  startsClean: 0
+  tankArt: {fileID: 1010321606}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!1 &1013416925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3554,6 +3963,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1140628282}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39
@@ -3601,8 +4022,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1022638551}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &1022638549 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1022638548}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1022638550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1022638548}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1022638551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022638550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 1
+  startsClean: 0
+  tankArt: {fileID: 1022638549}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!1 &1037496269
 GameObject:
   m_ObjectHideFlags: 0
@@ -3749,6 +4201,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1140628282}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.61
@@ -3796,8 +4260,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1707658153}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &1063605380 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1063605379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1063605381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1063605379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1075407278
 GameObject:
   m_ObjectHideFlags: 0
@@ -4758,11 +5235,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
   m_PrefabInstance: {fileID: 70436155}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1287004147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70436157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 6
+  startsClean: 0
+  tankArt: {fileID: 70436156}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!4 &1298606341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
   m_PrefabInstance: {fileID: 851255002}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1298606342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851255004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 4
+  startsClean: 0
+  tankArt: {fileID: 851255003}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!4 &1306968282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3556027836544728094, guid: baacccd351b05174ba435989e4457728, type: 3}
@@ -5486,6 +5999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1662466347}
+  - component: {fileID: 1662466348}
   m_Layer: 0
   m_Name: Room1
   m_TagString: Untagged
@@ -5516,6 +6030,25 @@ Transform:
   - {fileID: 1306968282}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1662466348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662466346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc934f072ba04ed086c8929b60b6c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomCleaningTracker
+  roomTanks:
+  - {fileID: 1877372619}
+  - {fileID: 1972696738}
+  - {fileID: 1738406989}
+  - {fileID: 1298606342}
+  - {fileID: 2145167006}
+  - {fileID: 1287004147}
 --- !u!4 &1670041970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -5526,6 +6059,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
   m_PrefabInstance: {fileID: 1063605379}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1707658153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063605381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 4
+  startsClean: 0
+  tankArt: {fileID: 1063605380}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!4 &1720335115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3556027836544728094, guid: baacccd351b05174ba435989e4457728, type: 3}
@@ -5690,6 +6241,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2142229490}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.26
@@ -5737,8 +6300,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1738406989}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &1738406987 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1738406986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1738406988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1738406986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1738406989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738406988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 3
+  startsClean: 0
+  tankArt: {fileID: 1738406987}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!1001 &1867670566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5747,6 +6341,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1140628282}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.39
@@ -5794,8 +6400,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1960214574}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &1867670567 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1867670566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1867670568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1867670566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1877372616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5804,6 +6423,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2142229490}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4000294
@@ -5859,13 +6490,62 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1877372619}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &1877372617 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1877372616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1877372618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1877372616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1877372619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877372618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 1
+  startsClean: 0
+  tankArt: {fileID: 1877372617}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!4 &1960214573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
   m_PrefabInstance: {fileID: 1867670566}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1960214574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867670568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 2
+  startsClean: 0
+  tankArt: {fileID: 1867670567}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!4 &1960358236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -5879,6 +6559,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2142229490}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.7875
@@ -5930,8 +6622,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1972696738}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &1972696736 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1972696735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1972696737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 1972696735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1972696738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972696737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 2
+  startsClean: 0
+  tankArt: {fileID: 1972696736}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
 --- !u!1 &1997914640
 GameObject:
   m_ObjectHideFlags: 0
@@ -6353,6 +7076,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2142229490}
     m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.7
@@ -6400,8 +7135,164 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2145167006}
   m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!212 &2145167004 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 2145167003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2145167005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 2145167003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2145167006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145167005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Tank 5
+  startsClean: 0
+  tankArt: {fileID: 2145167004}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
+--- !u!1001 &5049288592891134454
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 736309831}
+    m_Modifications:
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648017163853226707, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_Name
+      value: Level1 Cleaning HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540619386692749549, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: m_text
+      value: TANKS CLEANED  0 / 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181250717526583659, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: room
+      value: 
+      objectReference: {fileID: 1662466348}
+    - target: {fileID: 9181250717526583659, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 345269556}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+--- !u!114 &5049288592891134455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9181250717526583659, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+  m_PrefabInstance: {fileID: 5049288592891134454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab900fd0803734bbab50d31877f2e262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleaningHUD
+--- !u!224 &5049288592891134456 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1982698234606300669, guid: 59cf23acc577548d99450258c7c78508, type: 3}
+  m_PrefabInstance: {fileID: 5049288592891134454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6552019335089981503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6535,3 +7426,4 @@ SceneRoots:
   - {fileID: 1154843051}
   - {fileID: 625085292}
   - {fileID: 8835790414139084449}
+  - {fileID: 736309831}

@@ -7,6 +7,14 @@ public class RoomDoor : MonoBehaviour
 
     private static float nextTeleportTime = 0f;
 
+    // Unity can keep static fields when Enter Play Mode disables domain reload.
+    // The game clock restarts, so a cooldown from the last run must not survive.
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetTeleportCooldown()
+    {
+        nextTeleportTime = 0f;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Door trigger entered: " + gameObject.name);

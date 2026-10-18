@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6465719014802455577
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Name
+      value: CleanableAquarium
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7117553896085515489}
+  m_SourcePrefab: {fileID: 100100000, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+--- !u!1 &2593208621098318926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810787649498529879, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 6465719014802455577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7117553896085515489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593208621098318926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9d91d9483b47b9827e4f20975a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanableTank
+  tankName: Aquarium
+  startsClean: 0
+  tankArt: {fileID: 6456341074720049228}
+  dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
+  cleanTint: {r: 1, g: 1, b: 1, a: 1}
+  isClean: 0
+--- !u!212 &6456341074720049228 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9940890612806741, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
+  m_PrefabInstance: {fileID: 6465719014802455577}
+  m_PrefabAsset: {fileID: 0}
