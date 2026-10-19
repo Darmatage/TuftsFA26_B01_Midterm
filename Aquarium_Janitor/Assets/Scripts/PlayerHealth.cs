@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Settings")]
-    public int maxHealth = 3;
+    public int maxHealth = 2;
     public int currentHealth;
 
 
@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     public TMP_Text healthText;
 
     [Header("Game Over")]
-    public string gameOverSceneName = "GameOver";
+    public string gameOverSceneName = "EndLose";
 
     [Header("Player Knockback")]
     public float knockbackDistance = 0.5f;
@@ -92,6 +92,7 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         Debug.Log("Player has died!");
 
+        GameHandler.lastLevelDied = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(gameOverSceneName);
     }
 }

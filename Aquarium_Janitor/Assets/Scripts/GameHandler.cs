@@ -1,123 +1,44 @@
-using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour {
 
-      private GameObject player;
-      
-      public static int playerHearts = 2;
+      public PlayerHealth playerHealth;
       public GameObject heart1;
       public GameObject heart2;
-      public static float heart1fill = 1.0f;
-      public static float heart2fill = 1.0f;
-
-      public static int playerHealth = 100;
-      public int StartPlayerHealth = 100;
-     // public TMP_Text healthText;
 
       public static int gotTokens = 0;
-     // public TMP_Text tokensText;
-
-      public bool isDefending = false;
-
       public static bool stairCaseUnlocked = false;
-      //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
+      public static string lastLevelDied;
 
-      private string sceneName;
-      public static string lastLevelDied;  //allows replaying the Level where you died
+      void Update(){
+            if (playerHealth == null || heart1 == null || heart2 == null) return;
 
-      void Start(){
-            player = GameObject.FindWithTag("Player");
-            sceneName = SceneManager.GetActiveScene().name;
-            //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
-                  playerHealth = StartPlayerHealth;
-            //}
-            //updateStatsDisplay();
+            updateStatsDisplay();
+      }
+
+      public void updateStatsDisplay(){
+            heart1.SetActive(playerHealth.currentHealth >= 1);
+            heart2.SetActive(playerHealth.currentHealth >= 2);
       }
 
       public void playerGetTokens(int newTokens){
             gotTokens += newTokens;
-            //updateStatsDisplay();
-      }
-
-      public void playerGetHit(int damage){
-           if (isDefending == false){
-                  playerHealth -= damage;
-                  if (playerHealth >=0){
-                       if (playerHearts == 2){
-                              heart2fill = (float)playerHealth / StartPlayerHealth;
-                        }
-                       else if (playerHearts == 1){
-                              heart1fill = (float)playerHealth / StartPlayerHealth;
-                        }
-                        Debug.Log("pHealth = " + playerHealth + ". Hearts = " + playerHearts + ". h1fill = " + heart1fill + ". h2fill = " + heart2fill);
-                       // updateStatsDisplay();
-                  }
-                  if (damage > 0){
-                        //play GetHit animation:
-                        //player.GetComponent<PlayerHurt>().playerHit();
-                  }
-            }
-
-           //if (playerHealth > StartPlayerHealth){
-                  //playerHealth = StartPlayerHealth;
-                 // updateStatsDisplay();
-            //}
-
-           if (playerHealth <= 0){
-                  playerHealth = 0;
-                  playerHearts -=1;
-                  //updateStatsDisplay();
-                  playerHealth = StartPlayerHealth;
-            }
-
-            if (playerHearts <= 0){
-                  playerDies();
-            }
-
-      }
-
-/*
-      public void updateStatsDisplay(){
-            healthText.text = "HEALTH: " + playerHealth;
-            tokensText.text = "GOLD: " + gotTokens;
-      }
-*/
-      public void playerDies(){
-            //player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
-            lastLevelDied = sceneName;       //allows replaying the Level where you died
-            StartCoroutine(DeathPause());
-      }
-
-      IEnumerator DeathPause(){
-            //player.GetComponent<PlayerMove>().isAlive = false;
-            //player.GetComponent<PlayerJump>().isAlive = false;
-            yield return new WaitForSeconds(1.0f);
-            SceneManager.LoadScene("EndLose");
       }
 
       public void StartGame() {
+            Time.timeScale = 1f;
             SceneManager.LoadScene("Level1");
       }
 
-      // Return to MainMenu
       public void MainMenu() {
             Time.timeScale = 1f;
             SceneManager.LoadScene("MainMenu");
-             // Reset all static variables here, for new games:
-            playerHealth = StartPlayerHealth;
       }
 
-      // Replay the Level where you died
       public void ReplayLastLevel() {
             Time.timeScale = 1f;
             SceneManager.LoadScene(lastLevelDied);
-             // Reset all static variables here, for new games:
-            playerHealth = StartPlayerHealth;
       }
 
       public void QuitGame() {
@@ -131,4 +52,4 @@ public class GameHandler : MonoBehaviour {
       public void Credits() {
             SceneManager.LoadScene("Credits");
       }
-} 
+}
