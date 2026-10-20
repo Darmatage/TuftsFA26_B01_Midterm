@@ -1532,6 +1532,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5935303452926072683, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
+      propertyPath: isInWater
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8100021557333130486, guid: f3151056b5511af43bab22e4b6bd867c, type: 3}
       propertyPath: m_Name
       value: Player

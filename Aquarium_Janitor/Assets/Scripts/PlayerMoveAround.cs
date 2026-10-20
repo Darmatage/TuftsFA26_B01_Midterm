@@ -9,26 +9,39 @@ public class PlayerMoveAround : MonoBehaviour
     private Rigidbody2D rb2D;
     private PlayerHealth playerHealth;
 
-    private bool FaceRight = false;
+    private bool FaceRight = true;
     public float runSpeed = 5f;
     public float startSpeed = 10f;
     public bool isAlive = true;
 
     private Vector2 movement;
 
+	public AudioSource WalkMetalSFX;
+	public AudioSource WalkWaterSFX;
+	AudioSource WalkSFX;
+	public bool isInWater = false;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         playerHealth = GetComponent<PlayerHealth>();
+		WalkSFX = WalkMetalSFX;
     }
 
     void Update()
     {
-        if (!isAlive)
-        {
+        if (!isAlive){
             movement = Vector2.zero;
             return;
         }
+		else {
+			//audio SFX	
+			if (isInWater){WalkSFX = WalkWaterSFX;}
+			else {WalkSFX = WalkMetalSFX;}
+			if ((movement.x != 0) || (movement.y != 0)){
+				if (!WalkSFX.isPlaying){WalkSFX.Play();}
+			} else {WalkSFX.Stop();}
+		}
 
         if (playerHealth != null &&
             playerHealth.IsBeingKnockedBack)
