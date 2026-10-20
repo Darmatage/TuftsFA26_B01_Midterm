@@ -11,8 +11,14 @@ public class PauseMenuHandler : MonoBehaviour {
         public static bool GameisPaused = false;
         public GameObject pauseMenuUI;
         public AudioMixer mixer;
+        public AnimationCurve curveMove = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+        float preOffsetPos;
+        float startOffset = 500f;
         public static float volumeLevel = 1.0f;
         private Slider sliderVolumeCtrl;
+        float elapsedMove = 0f;
+        Vector3 startButtonPos;
+         
 
         void Awake(){
                 SetLevel (volumeLevel);
@@ -24,8 +30,13 @@ public class PauseMenuHandler : MonoBehaviour {
         }
 
         void Start(){
-                pauseMenuUI.SetActive(false);
-                GameisPaused = false;
+              preOffsetPos = pauseMenuUI.transform.position.y; //save the destination
+              startButtonPos = transform.position;
+              startButtonPos.y += startOffset;
+              pauseMenuUI.transform.position = startButtonPos; //set the start position
+
+              pauseMenuUI.SetActive(false);
+              GameisPaused = false;
         }
 
         void Update(){
@@ -72,4 +83,15 @@ public class PauseMenuHandler : MonoBehaviour {
                 Application.Quit();
                 #endif
         }
+
+        void FixedUpdate () {
+                     // Tween Move:
+                     if(startButtonPos.y >= preOffsetPos){
+                            startButtonPos.y -= curveMove.Evaluate(elapsedMove) * startOffset;
+                            pauseMenuUI.transform.position = startButtonPos;
+                     }
+                    
+                     elapsedMove += (Time.deltaTime / 10f);
+              
+       }
 }
