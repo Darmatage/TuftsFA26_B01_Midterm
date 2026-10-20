@@ -307,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ddede40a87358498922484fd695f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoveAround
+  waterSpeedMultiplier: 0.5
   runSpeed: 7.5
   startSpeed: 5
   isAlive: 1
@@ -358,6 +359,8 @@ MonoBehaviour:
   knockbackDistance: 10
   knockbackSpeed: 100
   iframeDuration: 3
+  flashInterval: 0.1
+  flashOpacity: 0.063
 --- !u!114 &-544241040161979733
 MonoBehaviour:
   m_ObjectHideFlags: 0

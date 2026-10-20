@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +8,6 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health Settings")]
     public int maxHealth = 2;
     public int currentHealth;
-
 
     private KnockbackMotor knockbackMotor;
 
@@ -29,17 +27,28 @@ public class PlayerHealth : MonoBehaviour
     [Header("Invulnerability")]
     public float iframeDuration = 3f;
 
+    [Header("Hit Flash")]
+    public float flashInterval = 0.1f;
+    [Range(0f, 1f)]
+    public float flashOpacity = 0.8f;
+
     private Rigidbody2D rb2D;
     private bool isDead = false;
     private float invulnerableUntil = 0f;
     private Coroutine knockbackCoroutine;
+    private Coroutine flashCoroutine;
+    private SpriteRenderer[] spriteRenderers;
 
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         UpdateHealthDisplay();
+
         knockbackMotor = GetComponent<KnockbackMotor>();
+
+        // Find the player's sprite renderers, including child objects.
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
 
     public void TakeDamage(int damage, Vector2 sourcePosition)
@@ -56,23 +65,63 @@ public class PlayerHealth : MonoBehaviour
 
         UpdateHealthDisplay();
 
-        // Start the 3-second invulnerability period.
+        // Start the invulnerability period.
         invulnerableUntil = Time.time + iframeDuration;
 
+        // Start flashing the player's sprite.
+        if (flashCoroutine != null)
+            StopCoroutine(flashCoroutine);
+
+        flashCoroutine = StartCoroutine(FlashRoutine());
+
         // Knock the player away from the enemy.
-        if (knockbackMotor != null)
+        if (knockbackMotor != null && rb2D != null)
         {
             Vector2 direction =
                 (rb2D.position - sourcePosition).normalized;
 
             knockbackMotor.ApplyKnockback(direction);
         }
+
         Debug.Log("Player Health: " + currentHealth);
 
         if (currentHealth <= 0)
-        {
             Die();
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        bool isFaded = false;
+
+        while (Time.time < invulnerableUntil)
+        {
+            isFaded = !isFaded;
+
+            foreach (SpriteRenderer sprite in spriteRenderers)
+            {
+                if (sprite == null)
+                    continue;
+
+                Color color = sprite.color;
+                color.a = isFaded ? flashOpacity : 1f;
+                sprite.color = color;
+            }
+
+            yield return new WaitForSeconds(flashInterval);
         }
+
+        // Restore full opacity when invulnerability ends.
+        foreach (SpriteRenderer sprite in spriteRenderers)
+        {
+            if (sprite == null)
+                continue;
+
+            Color color = sprite.color;
+            color.a = 1f;
+            sprite.color = color;
+        }
+
+        flashCoroutine = null;
     }
 
     private void UpdateHealthDisplay()
@@ -92,7 +141,9 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         Debug.Log("Player has died!");
 
-        GameHandler.lastLevelDied = SceneManager.GetActiveScene().name;
+        GameHandler.lastLevelDied =
+            SceneManager.GetActiveScene().name;
+
         SceneManager.LoadScene(gameOverSceneName);
     }
 }
