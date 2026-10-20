@@ -9,7 +9,7 @@ public class PlayerMoveAround : MonoBehaviour
     private Rigidbody2D rb2D;
     private PlayerHealth playerHealth;
 
-    private bool FaceRight = true;
+    private bool FaceRight = false;
     public float runSpeed = 5f;
     public float startSpeed = 10f;
     public bool isAlive = true;
