@@ -16,6 +16,7 @@ public class PlayerMoveAround : MonoBehaviour
 
     private Vector2 movement;
 
+	Animator anim;
 	public AudioSource WalkMetalSFX;
 	public AudioSource WalkWaterSFX;
 	AudioSource WalkSFX;
@@ -26,6 +27,7 @@ public class PlayerMoveAround : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         playerHealth = GetComponent<PlayerHealth>();
 		WalkSFX = WalkMetalSFX;
+		anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -39,8 +41,12 @@ public class PlayerMoveAround : MonoBehaviour
 			if (isInWater){WalkSFX = WalkWaterSFX;}
 			else {WalkSFX = WalkMetalSFX;}
 			if ((movement.x != 0) || (movement.y != 0)){
+				anim.SetBool("Walk", true);
 				if (!WalkSFX.isPlaying){WalkSFX.Play();}
-			} else {WalkSFX.Stop();}
+			} else {
+				anim.SetBool("Walk", false);
+				WalkSFX.Stop();
+				}
 		}
 
         if (playerHealth != null &&
@@ -87,11 +93,14 @@ public class PlayerMoveAround : MonoBehaviour
     public void EnterWater()
     {
         waterCount++;
+		isInWater = true;
     }
 
     public void ExitWater()
     {
         waterCount = Mathf.Max(0, waterCount - 1);
+		isInWater = false;
+		WalkSFX.Stop();
     }
 
     private void playerTurn()
