@@ -1449,6 +1449,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!4 &319033280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -1472,6 +1473,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!4 &321442069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -11932,19 +11934,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1097870488153124113, guid: b85f67aac311f4d99b6f391d799af110, type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 101.07
       objectReference: {fileID: 0}
     - target: {fileID: 1097870488153124113, guid: b85f67aac311f4d99b6f391d799af110, type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 111.8
       objectReference: {fileID: 0}
     - target: {fileID: 1097870488153124113, guid: b85f67aac311f4d99b6f391d799af110, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4
+      value: -4.9363
       objectReference: {fileID: 0}
     - target: {fileID: 1097870488153124113, guid: b85f67aac311f4d99b6f391d799af110, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.31
+      value: 14.4105
       objectReference: {fileID: 0}
     - target: {fileID: 1097870488153124113, guid: b85f67aac311f4d99b6f391d799af110, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12278,6 +12280,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!1 &1013416925
 GameObject:
   m_ObjectHideFlags: 0
@@ -12516,6 +12519,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!1 &1037496269
 GameObject:
   m_ObjectHideFlags: 0
@@ -22429,6 +22433,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!4 &1298606341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -22452,6 +22457,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!4 &1306968282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3556027836544728094, guid: baacccd351b05174ba435989e4457728, type: 3}
@@ -23505,6 +23511,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!4 &1720335115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3556027836544728094, guid: baacccd351b05174ba435989e4457728, type: 3}
@@ -23761,6 +23768,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!1001 &1759653400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24087,6 +24095,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!4 &1960214573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -24110,6 +24119,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!4 &1960358236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4074454022341954522, guid: 911840fc24694ee47b18d7fbf4d00931, type: 3}
@@ -24223,6 +24233,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!1 &1997914640
 GameObject:
   m_ObjectHideFlags: 0
@@ -24736,6 +24747,7 @@ MonoBehaviour:
   dirtyTint: {r: 0.65, g: 0.78, b: 0.32, a: 1}
   cleanTint: {r: 1, g: 1, b: 1, a: 1}
   isClean: 0
+  waterSystem: {fileID: 0}
 --- !u!1001 &5049288592891134454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24826,7 +24838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5425699642722216230, guid: 59cf23acc577548d99450258c7c78508, type: 3}
       propertyPath: m_text
-      value: Hold [C] to clean for 2 seconds)
+      value: Press [E] to repel escaped fish
       objectReference: {fileID: 0}
     - target: {fileID: 6648017163853226707, guid: 59cf23acc577548d99450258c7c78508, type: 3}
       propertyPath: m_Name

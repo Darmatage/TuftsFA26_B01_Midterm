@@ -168,6 +168,8 @@ MonoBehaviour:
   targetScale: {x: 5, y: 5, z: 1}
   duration: 20
   waterCollider: {fileID: 2439512340137960517}
+  waterAnimator: {fileID: 0}
+  waterSpriteRenderer: {fileID: 0}
 --- !u!1 &5681193635994984779
 GameObject:
   m_ObjectHideFlags: 0
