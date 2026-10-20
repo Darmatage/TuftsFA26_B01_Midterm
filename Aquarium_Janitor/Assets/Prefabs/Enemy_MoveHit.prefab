@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6924394049032414562}
   - component: {fileID: 3235532790987351610}
   - component: {fileID: 8422858525013301811}
+  - component: {fileID: 4366480792314162515}
   m_Layer: 0
   m_Name: Enemy_MoveHit
   m_TagString: Untagged
@@ -146,6 +147,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KnockbackMotor
   knockbackDistance: 7
   knockbackSpeed: 25
+--- !u!114 &4366480792314162515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523331503854415165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d4aa1443046ed42804b353a439c171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  anim: {fileID: 0}
+  healthLoot: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &7659234624628962705
 GameObject:
   m_ObjectHideFlags: 0
