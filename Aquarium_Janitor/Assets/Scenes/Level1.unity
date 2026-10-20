@@ -11745,6 +11745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 736309831}
   - component: {fileID: 736309830}
+  - component: {fileID: 1800000300}
   m_Layer: 0
   m_Name: Level1 Cleaning
   m_TagString: Untagged
@@ -11770,6 +11771,18 @@ MonoBehaviour:
   room2: {fileID: 36217770}
   room1Center: {x: -2.726141, y: 15.873931}
   room2Center: {x: -4.034998, y: -27.64}
+--- !u!114 &1800000300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736309829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f71f3e81aa1407db8d092f0a4aae468, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::LevelWin
 --- !u!4 &736309831
 Transform:
   m_ObjectHideFlags: 0
