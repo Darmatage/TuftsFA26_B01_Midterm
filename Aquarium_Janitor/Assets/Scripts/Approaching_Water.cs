@@ -19,7 +19,10 @@ public class Approaching_Water : MonoBehaviour
     private Vector3 initialScale;
     private Vector3 initialColliderScale;
     private Coroutine growthCoroutine;
-    private bool waterStopped = false;
+    public bool waterStopped = false;
+
+	//the animated water pouring object should be disabled when water stops
+	public GameObject animFlowWater; 
 
     void Start()
     {
@@ -90,6 +93,7 @@ public class Approaching_Water : MonoBehaviour
         if (waterStopped)
             return;
 
+		animFlowWater.SetActive(false);
         waterStopped = true;
 
         // Stop mask and hitbox growth.

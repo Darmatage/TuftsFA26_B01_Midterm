@@ -220,6 +220,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6882909658035650868, guid: af1c85ef934a9c449a35c239e1f43f2c, type: 3}
+      propertyPath: animFlowWater
+      value: 
+      objectReference: {fileID: 1656300467013125403}
+    - target: {fileID: 6882909658035650868, guid: af1c85ef934a9c449a35c239e1f43f2c, type: 3}
       propertyPath: waterAnimator
       value: 
       objectReference: {fileID: 9221481528538742327}
@@ -236,6 +240,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af1c85ef934a9c449a35c239e1f43f2c, type: 3}
+--- !u!1 &1656300467013125403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7044376084981396517, guid: af1c85ef934a9c449a35c239e1f43f2c, type: 3}
+  m_PrefabInstance: {fileID: 8592580866578002238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8484549028789799855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 180661471415761553, guid: af1c85ef934a9c449a35c239e1f43f2c, type: 3}
